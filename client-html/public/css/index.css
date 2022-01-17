@@ -1,0 +1,66 @@
+
+.page {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-panel {
+    margin: 10px;
+}
+
+.repo-list {
+  list-style: none;
+}
+
+.repo-list > li:hover {
+  background-color: rgba(128, 128, 128, 0.432);
+  cursor: pointer;
+}
+
+.repo-panel {
+  display: none;
+}
+
+.repo-panel.show {
+  display: block;
+  margin: 10px;
+}
+
+.commit-btn {
+    display: none;
+}
+
+.commit-btn.show {
+    display: block;
+}
+
+.health-status-icon {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  color: white;
+}
+
+.add-repo-panel {
+  display: none;
+}
+
+.add-repo-panel.show {
+  display: block;
+}
+
+.commits-panel {
+  display: none;
+}
+
+.commits-panel.show {
+  display: block;
+  width: 70%;
+}
+
+.commit-details {
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 5px 10px #888888;
+}

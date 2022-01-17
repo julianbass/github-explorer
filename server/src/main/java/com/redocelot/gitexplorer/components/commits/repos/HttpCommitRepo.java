@@ -75,9 +75,7 @@ public class HttpCommitRepo implements CommitRepo {
                 files.add(file);
                
             }
-            System.out.print(files.get(0).getFilename());
-
-            System.out.print(authorObj);
+           
             Commit commit = new Commit(sha, new Author(name, email), date, message, files);
             
             return commit;

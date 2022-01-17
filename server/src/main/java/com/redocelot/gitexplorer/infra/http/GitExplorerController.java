@@ -8,6 +8,10 @@ import com.redocelot.gitexplorer.components.commits.repos.CommitRepo;
 import com.redocelot.gitexplorer.components.commits.repos.HttpCommitRepo;
 import com.redocelot.gitexplorer.components.commits.usecases.GetCommitByShaInteractor;
 import com.redocelot.gitexplorer.components.commits.usecases.GetCommitsInteractor;
+import com.redocelot.gitexplorer.components.metrics.domain.RepoMetrics;
+import com.redocelot.gitexplorer.components.metrics.repo.HttpMetricsRepo;
+import com.redocelot.gitexplorer.components.metrics.repo.MetricsRepo;
+import com.redocelot.gitexplorer.components.metrics.usecases.GetRepoMetricsInteractor;
 import com.redocelot.gitexplorer.components.sources.domain.Source;
 import com.redocelot.gitexplorer.components.sources.repos.ISourceRepo;
 import com.redocelot.gitexplorer.components.sources.repos.SourceRepoInMemory;
@@ -27,7 +31,6 @@ public class GitExplorerController {
     public ArrayList<Source> getRepos() {
         ISourceRepo repo = new SourceRepoInMemory();
 		GetSources interactor = new GetSources(repo);
-		System.out.println(interactor.execute().get(0).getRepoName());
         return interactor.execute();
     }
 
@@ -46,6 +49,15 @@ public class GitExplorerController {
         Commit commit = interactor.execute(owner, repo, sha);
        
         return commit;
+        
+    }
+
+    @RequestMapping(value = "/api/repos/{owner}/{repo}/metrics", produces = MediaType.APPLICATION_JSON_VALUE)
+    public RepoMetrics getMetrics(@PathVariable(value="owner") String owner, @PathVariable(value="repo") String repo) {
+        MetricsRepo metricsRepo = new HttpMetricsRepo();
+        GetRepoMetricsInteractor interactor = new GetRepoMetricsInteractor(metricsRepo);
+        RepoMetrics repoMetrics = interactor.execute(owner, repo);       
+        return repoMetrics;
         
     }
 

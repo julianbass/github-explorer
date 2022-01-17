@@ -10,6 +10,8 @@ public class SourceRepoInMemory implements ISourceRepo {
 
     public SourceRepoInMemory() {
         this.store = new ArrayList<Source>();
+        this.store.add(new Source("octocat", "Hello-World"));
+        this.store.add(new Source("ReactiveX", "RxJava"));
     }
 
     @Override

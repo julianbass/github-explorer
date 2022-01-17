@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+
+<head>
+    <meta charset="utf-8">
+    <title>GIT-EXPLORER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content="My new website" />
+    <link href="/public/css/index.css" rel="stylesheet">
+    <script type="module" src="/src/index.js"></script>
+
+
+</head>
+<header>
+
+</header>
+
+<body>
+    <div class="page">
+        <div class="side-panel">
+            <h1>Git Explorer</h1>
+            <div>
+                <h3>Repos</h3>
+                <ul class="repo-list">
+
+                </ul>
+            </div>
+            <button id="add-repo-btn">Add Repo</button>
+            <div class="add-repo-panel">
+                <form>
+                    <label for="owner">Owner</label><br>
+                    <input type="text" id="owner" name="owner" value=""><br>
+                    <label for="repo-name">Repo Name</label><br>
+                    <input type="text" id="repo-name" name="repo-name" value=""><br><br>
+                </form>
+                <button id="add-repo-submit">Submit</button>
+            </div>
+
+        </div>
+
+
+        <div class="repo-panel">
+            <h3 id="repo-name"></h3>
+            <div>
+                <p>Health:</p>
+                <div id="health-status" class="health-status-icon"></div>
+            </div>
+            
+            <div class="commits-panel">
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
