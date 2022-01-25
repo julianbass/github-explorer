@@ -1,6 +1,6 @@
 export class Repos {
     constructor(repos) {
-        this.repos = repos || [];
+        this.repos =  repos ? [...repos] : [];
         this.observers = [];
     }
 
@@ -18,6 +18,7 @@ export class Repos {
         this.repos.push(repo);
         this.notify();
     }
+    
 
 
 

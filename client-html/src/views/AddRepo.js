@@ -1,6 +1,9 @@
-export class AddRepo {
+import { View } from "/src/views/View.js";
+
+export class AddRepo extends View {
 
     constructor(props) {
+        super();
         this.onRepoAdd = props.onRepoAdd;
         this.showForm = false;
     }
@@ -35,7 +38,7 @@ export class AddRepo {
         document.querySelector("#add-repo-submit").addEventListener("click", () => {
             const owner = document.querySelector("#owner").value;
             const repoName = document.querySelector("#repo-name").value;
-            console.log(owner, repoName);
+           
             this.onRepoAdd && this.onRepoAdd(owner, repoName);
             document.querySelector(".add-repo-form").classList.remove("show");
             this.showForm = false;

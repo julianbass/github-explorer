@@ -17,7 +17,7 @@ public class HttpMetricsRepo implements MetricsRepo {
            JSONObject responseObj = (JSONObject) response;
 
            Long healthPercentage = (Long) responseObj.get("health_percentage");
-            
+           System.out.println("HEALTH PERC" + healthPercentage); 
             return new RepoMetrics(healthPercentage);
         } catch (Exception e) {
             // TODO: handle exception

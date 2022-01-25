@@ -1,4 +1,12 @@
-export class CommitList {
+import { View } from "/src/views/View.js";
+
+export class CommitList extends View {
+
+
+    constructor() {
+      super();
+    }
+
     render(commits) {
             const el = document.querySelector(".repo-selected-info");
             el.classList.add("show");
@@ -15,6 +23,7 @@ export class CommitList {
                     <p>Author Name: ${commit.author.name}</p>
                     <p>Author Email: ${commit.author.email}</p>
                     <p>Message:  ${commit.message}</p>
+                    <button id="show-commit-details" class="btn-simple">Details</button>
                 </div>
             `;
               })

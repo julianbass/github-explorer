@@ -31,6 +31,7 @@ html {
     display: block;
     margin: 10px;
     min-width: 70%;
+    position: relative;
 }
 
 .commit-btn {
@@ -112,16 +113,19 @@ html {
     background-color: #ff4842a4;
 }
 
+.repo-details {
+    margin-bottom: 35px;
+}
+
 
 /* .commits-list {
     display: none;
 } */
 
-.repo-selected-info {
+.repo-selected-info.show {
     padding: 5px;
     margin: 5px;
     display: block;
-    width: 85%;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
@@ -135,4 +139,15 @@ html {
     padding: 5px;
     margin: 15px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.search-box {
+    position: absolute;
+    right: 10px;
+    margin-bottom: 10px;
+
+}
+
+.sort-by {
+    margin-right: 20px;
 }

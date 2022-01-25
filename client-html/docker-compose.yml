@@ -1,9 +1,0 @@
-version: "3.5"
-services:
-  web-client:
-    image: "nginx:latest"
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - "./:/usr/share/nginx/html"

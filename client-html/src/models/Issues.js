@@ -1,6 +1,6 @@
 export class Issues {
     constructor(Issues) {
-        this.repos = Issues || [];
+        this.issues = Issues || [];
         this.observers = [];
     }
 
@@ -9,6 +9,11 @@ export class Issues {
     }
 
     notify() {
-        this.observers.forEach((ob) => ob.update(this.repos));
+        this.observers.forEach((ob) => ob.update(this.issues));
+    }
+
+    setIssues(issues) {
+        this.issues = issues;
+        this.notify();
     }
 }

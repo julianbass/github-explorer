@@ -1,0 +1,23 @@
+version: "3.5"
+services:
+  web-client:
+    image: "nginx:latest"
+    ports:
+      - "80:80"
+    volumes:
+      - ./client-html/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./client-html/:/usr/share/nginx/html
+    networks:
+      - git-explorer-net
+  api-server:
+    image: "git-explorer-api"
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    networks:
+      - git-explorer-net
+networks:
+   git-explorer-net:
+
+     

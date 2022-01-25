@@ -1,4 +1,11 @@
-export class IssuesList {
+import { View } from "/src/views/View.js";
+
+export class IssuesList extends View {
+
+    constructor() {
+      super();
+    }
+
     render(issues) {
             const el = document.querySelector(".repo-selected-info");
             el.classList.add("show");

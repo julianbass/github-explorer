@@ -1,5 +1,8 @@
-export class RepoList {
+import { View } from "/src/views/View.js";
+
+export class RepoList extends View {
     constructor(props) {
+      super();
         this.onRepoSelect = props.onRepoSelect;
         this.activeRepo = -1;
     }
@@ -9,7 +12,7 @@ export class RepoList {
 
             const html = `${repos
       .map((repo, index) => {
-        console.log(index, this.activeRepo);
+       
         const isActive = index === this.activeRepo;
        
         return `
@@ -20,7 +23,7 @@ export class RepoList {
       })
       .join("\n")}`;
 
-    console.log(html);
+ 
     el.innerHTML = html;
 
     this.bindEventListeners(repos);
