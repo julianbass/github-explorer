@@ -25,6 +25,7 @@ Diagrams -
 
 Once you have cloned the repository change into the server directory and use the following command:
 
+`chmod +x mvnw`
 `./mvnw spring-boot:run`
 
 The API can be accessed via http://127.0.0.1:8080
@@ -55,7 +56,7 @@ If you don't wish to install dependencies locally you can install Docker (howeve
 
 From the root directory of the repository change into the server directory and build the docker image using the following command:
 
-`docker build . -t git-explorer-api`
+`sudo docker build . -t git-explorer-api`
 
 
 ### A Note on GitHub Rate limiting
@@ -75,7 +76,7 @@ Once you have created a personal access token you can inject this via the enviro
 
 For convenience there is a docker-compose file which allows the front end and server side to be built and ran in a single line command:
 
-`docker-compose up -d`
+`sudo docker-compose up -d`
 
 (this needs to be run in the root directory, at the same level as the docker-compose.yml file).
 
