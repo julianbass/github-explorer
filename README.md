@@ -1,7 +1,5 @@
 TO DO
 
-Deploy whole Client/Server Instructions 
-
 Diagrams - 
     MVC Front End
     Client Server (overall) + Facade Patterns
