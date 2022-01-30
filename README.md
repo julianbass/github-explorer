@@ -21,6 +21,7 @@ Diagrams -
 `git clone https://github.com/BenDMDev/github-explorer.git` 
 
 For this fork use
+
 `git clone https://github.com/julianbass/github-explorer.git` 
 
 ### Setting Up the API Server
@@ -28,6 +29,7 @@ For this fork use
 Once you have cloned the repository change into the server directory and use the following command:
 
 `chmod +x mvnw`
+
 `./mvnw spring-boot:run`
 
 The API can be accessed via http://127.0.0.1:8080
