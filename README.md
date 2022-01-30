@@ -20,6 +20,8 @@ Diagrams -
 
 `git clone https://github.com/BenDMDev/github-explorer.git` 
 
+For this fork use
+`git clone https://github.com/julianbass/github-explorer.git` 
 
 ### Setting Up the API Server
 
