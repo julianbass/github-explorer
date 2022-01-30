@@ -8,6 +8,8 @@ Diagrams -
     Clean Architecture (Server)
     Observer patterns
    
+# Tabby Cat GitHub Explorer
+This software is an implementation of the Tabby GitHub Explorer project. This is a case study for the forthcoming Springer book "Agile Software Engineering Skills."
 
 # Running Locally (No Docker)
 
