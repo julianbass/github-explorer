@@ -9,18 +9,15 @@ This software is an implementation of the Tabby GitHub Explorer project. This is
 - NodeJS
 
 ### Clone Repository
+To clone this fork of Ben Monaghan's vcs-explorer, use:
 
-`git clone https://github.com/BenDMDev/github-explorer.git` 
-
-For this fork use
-
-`git clone https://github.com/julianbass/github-explorer.git` 
+`git clone https://github.com/julianbass/vcs-explorer.git` 
 
 ### Setting Up the API Server
 
 Once you have cloned the repository change into the server directory and use the following command:
 
-`chmod +x mvnw`
+`chmod +x mvnw` #on Linux you might need this
 
 `./mvnw spring-boot:run`
 
@@ -52,7 +49,7 @@ If you don't wish to install dependencies locally you can install Docker (howeve
 
 From the root directory of the repository change into the server directory and build the docker image using the following command:
 
-`sudo docker build . -t git-explorer-api`
+`docker build . -t git-explorer-api` # on Linux you might need `sudo docker build . -t git-explorer-api`
 
 
 ### A Note on GitHub Rate limiting
