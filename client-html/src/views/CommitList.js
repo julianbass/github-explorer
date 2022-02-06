@@ -14,7 +14,6 @@ export class CommitList extends View {
             const html = `<h3>Commits</h3>            
             ${commits
               .map((commit, index) => {
-                console.log(commit);
                 return `
                 <div id="commit-${index}" class="commit-details">
                     <p>Created ON: ${new Date(

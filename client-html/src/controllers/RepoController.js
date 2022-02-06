@@ -15,11 +15,10 @@ import {
   PULLS,
   AUTHOR_NAME,
   CREATED_ON_ASC,
-  CREATED_ON_DESC
+  CREATED_ON_DESC,
 } from "/src/views/RepoDetails.js";
 import { Issues } from "/src/models/Issues.js";
 import { IssuesList } from "/src/views/IssuesList.js";
-
 
 export class RepoController {
   constructor() {
@@ -106,20 +105,41 @@ export class RepoController {
   }
 
   search(selected, keyword) {
-    this.commits.search(keyword);
+    switch (selected) {
+      case COMMIT:
+        this.commits.search(keyword);
+        break;
+      case ISSUES:
+        this.issues.search(keyword);
+      default:
+        break;
+    }
+    
   }
 
-  sort(type) {
-    console.log(type);
+  sort(selected, type) {
+    switch (selected) {
+      case COMMIT:
+        this.callSort(this.commits, type);
+        break;
+      case ISSUES:
+        this.callSort(this.issues, type);
+      default:
+        break;
+    }
+  }
+
+  callSort(callee, type) {
+    
     switch (type) {
       case AUTHOR_NAME:
-        this.commits.sortByAuthorName();
+        callee.sortByAuthorName();
         break;
       case CREATED_ON_ASC:
-        this.commits.sortByCreatedOn(0);
+        callee.sortByCreatedOn(0);
         break;
       case CREATED_ON_DESC:
-        this.commits.sortByCreatedOn(1);
+        callee.sortByCreatedOn(1);
         break;
       default:
         return;
@@ -128,7 +148,6 @@ export class RepoController {
 
   bindViewsToModels() {
     this.activeRepo = new Repo();
-    this.repos = new Repos();
     this.commits = new Commits();
     this.issues = new Issues();
 
@@ -136,7 +155,7 @@ export class RepoController {
       new RepoDetails({
         onRequestToggle: (requestType) => this.onRepoInfoSelect(requestType),
         onSearch: (selected, keyword) => this.search(selected, keyword),
-        onSort: (type) => this.sort(type),
+        onSort: (selected, type) => this.sort(selected, type),
       })
     );
 

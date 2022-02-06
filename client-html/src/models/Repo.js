@@ -1,27 +1,21 @@
-export class Repo {
-    constructor(repo) {
-        this.repo = repo;
-        this.observers = [];
-    }
+import { Subject } from "/src/models/Subject.js";
 
-    subscribe(observer) {
-        this.observers.push(observer);
-    }
-
-    notify() {
-        this.observers.forEach((ob) => ob.update(this.repo));
-    }
+export class Repo extends Subject {
+    constructor(repo) {    
+        super(repo);           
+       
+    }  
 
     getName() {
-        return this.repo.name;
+        return this.state.name;
     }
 
     getOwner() {
-        return this.repo.owner;
+        return this.state.owner;
     }
 
     setRepo(repo) {
-        this.repo = repo;
+        this.state = repo;
         this.notify();
     }
 }

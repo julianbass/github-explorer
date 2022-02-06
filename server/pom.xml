@@ -10,9 +10,9 @@
 		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.redocelot</groupId>
-	<artifactId>git-explorer</artifactId>
+	<artifactId>vc-explorer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>git-explorer</name>
+	<name>vc-explorer</name>
 	<description>Git Explorer For Book Case Study</description>
 	<properties>
 		<java.version>8</java.version>

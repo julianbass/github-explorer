@@ -1,25 +1,23 @@
-export class Commits {
+import { Subject } from "/src/models/Subject.js";
+
+export class Commits extends Subject {
+
+
   constructor(commits) {
-    this.commits = commits;
-    this.observers = [];
+    super(commits);
+    
   }
-
-  subscribe(observer) {
-    this.observers.push(observer);
-  }
-
-  notify(commits) {
-    this.observers.forEach((observer) => observer.update(commits || this.commits));
-  }
+  
 
   setCommits(commits) {
-    this.commits = commits;
-    this.notify();
+    this.state = commits;
+    this.notify(commits);
   }
 
+ 
   sortByAuthorName() {
     
-    const commits = this.commits;
+    const commits = this.state;
     commits.sort((a, b) => {
         const nameA = a.author.name.toUpperCase(); // ignore upper and lowercase
         const nameB = b.author.name.toUpperCase(); // ignore upper and lowercase
@@ -37,7 +35,7 @@ export class Commits {
   }
 
   sortByCreatedOn(direction) {
-      const commits = this.commits;
+      const commits = this.state;
       commits.sort((a, b) => {
         const dateA =  new Date(a.createdOn);
         const dateB =  new Date(b.createdOn);
@@ -50,7 +48,7 @@ export class Commits {
 
   search(keyword) {
     const keywordLowerCase = keyword.toLowerCase();
-    const commits = this.commits.filter((commit) => {        
+    const commits = this.state.filter((commit) => {        
         return commit.message.toLowerCase().includes(keywordLowerCase) 
         || commit.author.name.toLowerCase().includes(keywordLowerCase)
         || commit.author.email.toLowerCase().includes(keywordLowerCase)

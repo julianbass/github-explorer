@@ -14,7 +14,7 @@ export class RepoDetails extends View {
     this.onRequestToggle = props.onRequestToggle;
     this.onSearch = props.onSearch;
     this.onSort = props.onSort;
-    this.selected = -1;
+    this.activeDetails = -1;
   }
 
   getHealthIconBgColor(percentage) {
@@ -56,9 +56,9 @@ export class RepoDetails extends View {
             <label for="sort-by">Sort By: </label>
             <select class="sort-by" name="sort-by" id="sort-by">
                 <option disabled selected value> -- Sort By -- </option>
-                <option value="0">Author</option>
-                <option value="1">Latest</option>
-                <option value="2">Oldest</option>
+                <option value="${AUTHOR_NAME}">Author</option>
+                <option value="${CREATED_ON_ASC}">Latest</option>
+                <option value="${CREATED_ON_DESC}">Oldest</option>
             </select> 
             <input id="search-contents" type="text" placeholder="Search.." name="search">
             <button id="search-btn"><i class="fa fa-search"></i></button>
@@ -73,19 +73,18 @@ export class RepoDetails extends View {
   bindEventListeners() {
     document.querySelector("#sort-by").addEventListener("change", (e) => {
       const selected = parseInt(e.target.value);
-      this.selected = selected;
-      selected > -1 && this.onSort && this.onSort(selected);
+      selected > -1 && this.onSort && this.onSort(this.activeDetails, selected);
     });
 
     document.querySelector("#info-type").addEventListener("change", (e) => {
       const selected = parseInt(e.target.value);
-      this.selected = selected;
+      this.activeDetails = selected;
       selected > -1 && this.onRequestToggle(parseInt(e.target.value));
     });
 
     document.querySelector("#search-btn").addEventListener("click", () => {
       const val = document.querySelector("#search-contents").value;
-      this.onSearch && this.onSearch(this.selected, val);
+      this.onSearch && this.onSearch(this.activeDetails, val);
     });
   }
 

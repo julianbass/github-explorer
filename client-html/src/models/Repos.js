@@ -1,21 +1,14 @@
-export class Repos {
+import { Subject } from "/src/models/Subject.js";
+
+export class Repos extends Subject {
     constructor(repos) {
-        this.repos =  repos ? [...repos] : [];
-        this.observers = [];
+        super(repos);
     }
 
-
-    subscribe(observer) {
-        this.observers.push(observer);
-    }
-
-    notify() {
-        this.observers.forEach(ob => ob.update(this.repos));
-    }
 
 
     addRepo(repo) {
-        this.repos.push(repo);
+        this.state.push(repo);
         this.notify();
     }
     
