@@ -1,13 +1,3 @@
-TO DO
-
-Deploy whole Client/Server Instructions 
-
-Diagrams - 
-    MVC Front End
-    Client Server (overall) + Facade Patterns
-    Clean Architecture (Server)
-    Observer patterns
-   
 # Tabby Cat GitHub Explorer
 This software is an implementation of the Tabby GitHub Explorer project. This is a case study for the forthcoming Springer book "Agile Software Engineering Skills."
 
@@ -38,13 +28,13 @@ The API can be accessed via http://127.0.0.1:8080
 
 ### Setting up the Client "Dev" Server
 
-From the root directory of the repository, change into the "client-html" directory. You'll need to install dependencies first using the following command:
+From the root directory of the repository, change into the "client" directory. You'll need to install dependencies first using the following command:
 
 `npm install`
 
-Once dependencies have been install you can run a local development server which servers the HTML/JS files and acts as a reverse proxy (to avoid CORS issues)
+Once dependencies have been install you can run a local development server which serves the HTML/JS files and acts as a reverse proxy (to avoid CORS issues). This is a convenience script that allows real time development of the client without the need to rebuild/deploy. 
 
-`node server.js`
+`node local-dev-server.js`
 
 The client can be accessed via http://127.0.0.1:4000
 

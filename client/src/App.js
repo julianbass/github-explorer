@@ -1,29 +1,10 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import { getRepos } from "./apis/repo-api";
-import { Header } from "./components/header/Styles";
-import Sources from "./components/source-list/Sources";
+import { RepoController } from "/src/controllers/RepoController.js"
 
-function App() {
-  const [sources, setSources] = useState([]);
-  useEffect(() => {
-    async function getData() {
-      const data = await getRepos();
-      console.log(data);
-      setSources(data);
+export function App() {
+    async function main() {
+        const repoController = new RepoController();
+        repoController.init();
     }
 
-    getData();
-  }, []);
-
-  return (
-    <div className="App" style={{ position: "relative" }}>
-      <Header>
-        <p>Git Explorer</p>
-      </Header>
-      <Sources sources={sources} />
-    </div>
-  );
+    main();
 }
-
-export default App;
