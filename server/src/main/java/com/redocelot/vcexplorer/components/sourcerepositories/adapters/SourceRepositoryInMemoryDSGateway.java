@@ -9,7 +9,7 @@ public class SourceRepositoryInMemoryDSGateway implements SourceRepositoryDSGate
     private ArrayList<SourceRepository> store;
 
     public SourceRepositoryInMemoryDSGateway(ArrayList<SourceRepository> store) {
-        this.store = store; // snew ArrayList<Source>();
+        this.store = store; 
         
     }
 
